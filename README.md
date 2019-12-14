@@ -1,17 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Name: Roy Chan Chuan Zhi
+Matric No: A0197135Y
+
+Ruby Version: 2.6.5
+Datebase: PostgreSQL
 
 Things you may want to cover:
-
-* Ruby version
 
 * System dependencies
 
 * Configuration
-
-* Database creation
 
 * Database initialization
 
