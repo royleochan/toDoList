@@ -21,7 +21,7 @@ class NewTask extends React.Component {
     }
   
     handleSubmit(event) {
-      alert('A task was created: ' + this.state.title);
+      window.location.href = 'tasks_path'
       event.preventDefault();
     }
   

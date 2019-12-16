@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+SAMPLE_TASKS = [{
+    title: 'Rails Routes expanded view option',
+    description: 'Rails 6 adds support to show rails routes in an expanded format with --expanded option.',
+  },{
+    title: 'Rails find_in_batches vs find_each',
+    description: 'This article discusses how we can use find_in_batches and find_each to query records in batches with ActiveRecord.',
+  }, {
+    title: 'Rails Routes member vs collection',
+    description: 'Member routes act on a member of the resource. Collection routes acts on resources in general.',
+  }
+]
+  
+SAMPLE_TASKS.each do |task|
+    Task.create(task)
+end
