@@ -21,19 +21,38 @@ class NewTask extends React.Component {
     }
   
     handleSubmit(event) {
-      window.location.href = 'tasks_path'
-      event.preventDefault();
+      console.log('this.state', this.state);
+      fetch ('/api/v1/tasks', {
+        method: 'post',
+        body: JSON.stringify(this.state),
+        headers: { 'Content-Type': 'application/json'},
+      }).then((response) => {
+        alert('Task created successfully');
+        location.href= '/tasks';
+      });
     }
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
-            <p>Task Title:</p>
-            <input type="text" name="title" onChange={this.handleChange} />
-            <p>Description:</p>
-            <input type="text" name="description" onChange={this.handleChange} />
+        <div>
+          <h3>New Task</h3>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <label>Task Title:</label>
+                <input 
+                  type="text" 
+                  name="title" 
+                  onChange={this.handleChange}
+                />
+            </div>
+            <div>
+              <label>Description:</label>
+                <input type="text" name="description" onChange={this.handleChange} />
+
+            </div>
             <input type="submit" value="Submit" />
-        </form>
+          </form>
+        </div>
       );
     }
   }

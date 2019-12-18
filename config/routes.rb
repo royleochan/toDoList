@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'tasks' => 'pages#tasks'
 
+  get 'tasks/:id', to: 'pages#index';
+
 
   #resource route
   namespace :api do

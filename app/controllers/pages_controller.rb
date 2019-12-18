@@ -10,4 +10,8 @@ class PagesController < ApplicationController
     def tasks
 
     end
+
+    def index
+
+    end
 end

@@ -9,9 +9,21 @@ class TasksList extends React.Component {
     }
 
     componentDidMount() {
+        this.fetchTasksList();
+    }
+
+    fetchTasksList = () => {
         fetch('/api/v1/tasks')
             .then((response) => response.json())
             .then((tasks) => this.setState({ tasks }))
+    }
+
+    handleDelete = (taskId) => {
+        fetch(`/api/v1/tasks/${taskId}`, { method: 'delete' })
+            .then((response) => {
+                alert('Task deleted successfully')
+                this.fetchTasksList();
+            });
     }
 
     render() {
@@ -25,6 +37,7 @@ class TasksList extends React.Component {
                     <th>ID</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,13 +45,16 @@ class TasksList extends React.Component {
                     tasks.map((task) => {
                     return (
                         <tr key={task.id}>
-                        <td>{task.id}</td>
-                        <td>
-                            {/*<Link to={`/tasks/${task.id}`}>
-                            {task.title}
-                            </Link>*/}
-                        </td>
-                        <td>{task.description}</td>
+                            <td>{task.id}</td>
+                            <td>
+                                {task.title}
+                            </td>
+                            <td>{task.description}</td>
+                            <td>
+                                <button onClick = { () => this.handleDelete(task.id) }>
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
                     )
                     })
