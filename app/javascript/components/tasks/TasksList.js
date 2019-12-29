@@ -26,6 +26,16 @@ class TasksList extends React.Component {
             });
     }
 
+
+
+    handleView = (taskId) => {
+        location.href = `/tasks/${taskId}`
+    }
+
+    handleUpdate = (taskId) => {
+        location.href = `/tasks/${taskId}/edit`
+    }
+
     render() {
         const { tasks } = this.state;
         return (
@@ -53,6 +63,12 @@ class TasksList extends React.Component {
                             <td>
                                 <button onClick = { () => this.handleDelete(task.id) }>
                                     Delete
+                                </button>
+                                <button onClick = { () => this.handleView(task.id)}>
+                                    View
+                                </button>
+                                <button onClick = { () => this.handleUpdate(task.id)}>
+                                    Edit
                                 </button>
                             </td>
                         </tr>

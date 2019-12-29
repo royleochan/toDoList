@@ -28,7 +28,7 @@ class NewTask extends React.Component {
         headers: { 'Content-Type': 'application/json'},
       }).then((response) => {
         alert('Task created successfully');
-        location.href= '/tasks';
+        location.href = '/';
       });
     }
   

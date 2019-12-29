@@ -1,3 +1,5 @@
+//react routes
+
 import React from 'react';
 import {
   Switch,
@@ -6,6 +8,7 @@ import {
 import Tasks from './components/tasks/TasksList'
 import NewTask from './components/tasks/NewTask'
 import SingleTask from './components/tasks/SingleTask'
+import UpdateTask from './components/tasks/UpdateTask'
 
 export default () => {
   return (
@@ -22,6 +25,11 @@ export default () => {
         path = "/tasks/:id"
         exact
         component = {SingleTask}
+       />
+      <Route
+        path = "/tasks/:id/edit"
+        exact
+        component = {UpdateTask}
        />
     </Switch>
   );
