@@ -5,6 +5,7 @@ ruby '2.6.5'
 
 # For integrating React with rails
 gem 'react-rails'
+gem 'react_on_rails', '~> 11.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2'
