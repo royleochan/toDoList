@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import TasksList from './TasksList';
+import CheckBox from '../CheckBox'
 
 class SingleTask extends React.Component {
     constructor(props) {

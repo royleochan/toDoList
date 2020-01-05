@@ -7,7 +7,8 @@ class NewTask extends React.Component {
       super(props);
       this.state = {
           title: '', 
-          description: ''
+          description: '',
+          completed: false
         };
   
       this.handleChange = this.handleChange.bind(this);
@@ -48,7 +49,6 @@ class NewTask extends React.Component {
             <div>
               <label>Description:</label>
                 <input type="text" name="description" onChange={this.handleChange} />
-
             </div>
             <input type="submit" value="Submit" />
           </form>
