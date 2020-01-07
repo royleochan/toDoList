@@ -42,14 +42,15 @@ class TasksList extends React.Component {
 
         return (
             <div>
-                <h3 className = 'example'>All Tasks</h3>
+                <h3 className = 'title'>All Tasks</h3>
                 <table>
                 <thead>
                     <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Actions</th>
+                    <th className = 'title'>ID</th>
+                    <th className = 'title'>Title</th>
+                    <th className = 'title'>Description</th>
+                    <th className = 'title'>Actions</th>
+                    <th className = 'title'>Due</th>
                     <th></th>
                     </tr>
                 </thead>
@@ -73,6 +74,9 @@ class TasksList extends React.Component {
                                     <button onClick = { () => this.handleUpdate(task.id)}>
                                         Edit
                                     </button>
+                                </td>
+                                <td>
+                                    {task.due + ''}
                                 </td>
                                 <td>
                                     <CheckBox 

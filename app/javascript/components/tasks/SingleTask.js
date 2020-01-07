@@ -19,6 +19,12 @@ class SingleTask extends React.Component {
 
     render() {
         const { task } = this.state;
+        console.log(task.completed)
+        if (!task.completed === undefined) {
+            var completed = task.completed.toString();
+            console.log(completed)
+        }
+
         return (
             <div>
                 <div>
@@ -29,6 +35,11 @@ class SingleTask extends React.Component {
                 <div>
                     <label> Description </label>
                     <p> {task.description} </p>
+                </div>
+
+                <div>
+                    <label> Completed </label>
+                    <p> {task.completed + ''} </p>
                 </div>
             </div>
         );
