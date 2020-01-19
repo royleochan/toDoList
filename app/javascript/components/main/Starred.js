@@ -1,27 +1,25 @@
 import React from 'react'
 
-class CheckBox extends React.Component {
+import '../stylesheets/myStyles.css'
+
+class Starred extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            checked: false
-        }
+        this.state = { checked: false };
     }
 
-    handleCheckboxChange = () => {
-        //parent tasksList component props
-        var task = this.props.taskDetails;
+    handleChange = () => {
+        //props from parent component TaskRow
+        const task = this.props.taskDetails;
+
         if (!this.state.checked) {
             fetch(`/api/v1/tasks/${task.id}`, {
                 method: 'put',
                 body: JSON.stringify({
-                    title: `${task.title}`,
-                    description: `${task.description}`,
-                    completed: true
+                    starred: true,
                 }),
                 headers: { 'Content-Type': 'application/json' },
             }).then((response) => {
-                console.log(task.completed);
                 this.setState({
                     checked: !this.state.checked
                 });
@@ -30,9 +28,7 @@ class CheckBox extends React.Component {
             fetch(`/api/v1/tasks/${task.id}`, {
                 method: 'put',
                 body: JSON.stringify({
-                    title: `${task.title}`,
-                    description: `${task.description}`,
-                    completed: false
+                    starred: false,
                 }),
                 headers: { 'Content-Type': 'application/json' },
             }).then((response) => {
@@ -46,16 +42,14 @@ class CheckBox extends React.Component {
     render() {
         return (
             <div>
-            <label>
-                <input
-                    type = "checkbox"
-                    checked = {this.state.checked}
-                    onChange = {this.handleCheckboxChange}
-                />
-            </label>
-            </div>    
+                <input type = 'checkbox' 
+                       className = 'star'
+                       checked = {this.state.checked}
+                       onChange = {this.handleChange}/>
+            </div>
         )
     }
 }
 
-export default CheckBox
+export default Starred
+

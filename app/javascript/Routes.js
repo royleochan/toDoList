@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Tasks from './components/tasks/TasksList'
+import Tasks from './components/main/TasksList'
 import NewTask from './components/tasks/NewTask'
 import SingleTask from './components/tasks/SingleTask'
 import UpdateTask from './components/tasks/UpdateTask'
@@ -14,7 +14,7 @@ export default () => {
   return (
     <Switch>
       <Route exact path="/">
-        <Tasks />
+        <Tasks/>
       </Route>
       <Route 
         path="/tasks/new"

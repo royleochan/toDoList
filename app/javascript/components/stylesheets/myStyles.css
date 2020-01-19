@@ -9,3 +9,23 @@
 .line {
     text-decoration: line-through;
 }
+  
+.star {
+    visibility:hidden;
+    font-size:30px;
+    cursor:pointer;
+}
+.star:before {
+   content: "\2606";
+   visibility:visible;
+}
+.star:checked:before {
+   content: "\2605";
+   color:salmon;
+}
+
+.strikeThrough{
+    text-decoration: overline underline line-through;
+    color:#999;
+}
+
