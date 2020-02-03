@@ -5,7 +5,16 @@ import '../stylesheets/myStyles.css'
 class Starred extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { checked: false };
+        this.state = { 
+            checked: false
+        };
+    }
+
+    componentDidMount() {
+        const task = this.props.taskDetails;
+        this.setState({
+            checked: task.starred,
+        })
     }
 
     handleChange = () => {
@@ -40,14 +49,25 @@ class Starred extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <input type = 'checkbox' 
-                       className = 'star'
-                       checked = {this.state.checked}
-                       onChange = {this.handleChange}/>
-            </div>
-        )
+        if (this.props.checked) {
+            return (
+                <div>
+                    <input type = 'checkbox' 
+                           className = 'star'
+                           checked = {this.state.checked}
+                           onChange = {this.handleChange}/>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <input type = 'checkbox' 
+                           className = 'star'
+                           checked = {this.state.checked}
+                           onChange = {this.handleChange}/>
+                </div>
+            )
+        }
     }
 }
 

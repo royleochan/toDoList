@@ -2,23 +2,33 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
+import moment from 'react-moment'
+
 class NewTask extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
           title: '', 
           description: '',
-          completed: false
+          completed: false,
+          due: ''
         };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleDate = this.handleDate.bind(this);
     }
   
     handleChange(event) {
       const name = event.target.name;
-      const value = event.target.value;        
+      const value = event.target.value;
       this.setState({[name]: value});
+    }
+
+    handleDate(event) {
+      const name = event.target.name;
+      const value = event.target.value;
+      this.setState({[name]: new Date(value)});
     }
   
     handleSubmit(event) {
@@ -49,6 +59,10 @@ class NewTask extends React.Component {
             <div>
               <label>Description:</label>
                 <input type="text" name="description" onChange={this.handleChange} />
+            </div>
+            <div>
+              <label>Due Date:</label>
+                <input type="text" name="due" placeholder = "YYYY/MM/DD" onChange={this.handleDate} />
             </div>
             <input type="submit" value="Submit" />
           </form>

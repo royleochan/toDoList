@@ -4,23 +4,23 @@ class CheckBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            checked: false
+            checked: null
         }
     }
 
-    //decides if checkbox is checked after page refresh
-    // componentDidMount() {
-
-    // }
+    componentDidMount() {
+        const task = this.props.taskDetails;
+        this.setState({
+            checked: task.completed,
+        })
+    }
 
     handleCheckboxChange = () => {
         //props from parent component TaskRow
         const task = this.props.taskDetails;
 
-        //use webstorage for persistent checkbox
-
         //change task completion accordingly
-        if (!this.state.checked) {
+        if (this.state.checked == false) {
             fetch(`/api/v1/tasks/${task.id}`, {
                 method: 'put',
                 body: JSON.stringify({
@@ -52,20 +52,37 @@ class CheckBox extends React.Component {
     }
 
     render() {
-        return (
-            <div>
+        if (this.props.checked) {
+            return (
                 <div>
-                    <input
-                        type = "checkbox"
-                        id = "checkbox"
-                        checked = {this.state.checked}
-                        onChange = {this.handleCheckboxChange}
-                        autoComplete = "off"
-                    />
-                    <label htmlFor = "checkbox"></label>
-                </div>    
-            </div>
-        )
+                    <div>
+                        <input
+                            type = "checkbox"
+                            id = "checkbox"
+                            checked = {true}
+                            onChange = {this.handleCheckboxChange}
+                            autoComplete = "off"
+                        />
+                        <label htmlFor = "checkbox"></label>
+                    </div>    
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <div>
+                        <input
+                            type = "checkbox"
+                            id = "checkbox"
+                            checked = {false}
+                            onChange = {this.handleCheckboxChange}
+                            autoComplete = "off"
+                        />
+                        <label htmlFor = "checkbox"></label>
+                    </div>    
+                </div>
+            )
+        }
     }
 }
 

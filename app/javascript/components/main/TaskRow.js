@@ -49,7 +49,7 @@ class TaskRow extends React.Component {
                 <>
                     <tr className = 'strikeThrough'>
                         <td>
-                            <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough}/>
+                            <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough} checked = {this.state.strikeThrough}/>
                         </td>
                         <td>{task.title}</td>
                         <td>{task.description}</td>
@@ -74,11 +74,12 @@ class TaskRow extends React.Component {
                 </>
             )
         } else {
+            console.log(task);
             return (
                 <>
                     <tr>
                         <td>
-                            <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough}/>
+                            <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough} checked = {this.state.strikeThrough}/>
                         </td>
                         <td>{task.title}</td>
                         <td>{task.description}</td>
