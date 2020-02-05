@@ -4,7 +4,7 @@ class CheckBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            checked: null
+            checked: false
         }
     }
 
@@ -49,40 +49,21 @@ class CheckBox extends React.Component {
                 });
             });
         }
+        this.props.fetch();
     }
 
     render() {
-        if (this.props.checked) {
-            return (
-                <div>
-                    <div>
-                        <input
-                            type = "checkbox"
-                            id = "checkbox"
-                            checked = {true}
-                            onChange = {this.handleCheckboxChange}
-                            autoComplete = "off"
-                        />
-                        <label htmlFor = "checkbox"></label>
-                    </div>    
-                </div>
-            )
-        } else {
-            return (
-                <div>
-                    <div>
-                        <input
-                            type = "checkbox"
-                            id = "checkbox"
-                            checked = {false}
-                            onChange = {this.handleCheckboxChange}
-                            autoComplete = "off"
-                        />
-                        <label htmlFor = "checkbox"></label>
-                    </div>    
-                </div>
-            )
-        }
+        return (
+            <div>
+                <input
+                    type = "checkbox"
+                    id = "checkbox"
+                    checked = {this.state.checked}
+                    onChange = {this.handleCheckboxChange}
+                    autoComplete = "off"
+                />
+            </div>
+        )
     }
 }
 

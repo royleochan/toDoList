@@ -46,28 +46,19 @@ class Starred extends React.Component {
                 });
             });
         }
+
+        this.props.fetch();
     }
 
     render() {
-        if (this.props.checked) {
-            return (
-                <div>
-                    <input type = 'checkbox' 
-                           className = 'star'
-                           checked = {this.state.checked}
-                           onChange = {this.handleChange}/>
-                </div>
-            )
-        } else {
-            return (
-                <div>
-                    <input type = 'checkbox' 
-                           className = 'star'
-                           checked = {this.state.checked}
-                           onChange = {this.handleChange}/>
-                </div>
-            )
-        }
+        return (
+            <div>
+                <input type = 'checkbox' 
+                        className = 'star'
+                        checked = {this.state.checked}
+                        onChange = {this.handleChange}/>
+            </div>
+        )
     }
 }
 

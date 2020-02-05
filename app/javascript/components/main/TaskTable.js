@@ -7,25 +7,43 @@ import '../stylesheets/myStyles.css'
 class TaskTable extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { tasks: [] };
+        //array of tasks as objects
+        this.state = { 
+            tasks: [],
+        };
+
+        this.fetchAfterEdit = this.fetchAfterEdit.bind(this);
     }
 
     componentDidMount() {
         this.fetchTasksList();
     }
 
+    fetchAfterEdit() {
+        this.fetchTasksList();
+    }
+
     fetchTasksList = () => {
+        console.log("fetch");
+        //fetches data as array of objects
         fetch('/api/v1/tasks')
             .then((response) => response.json())
             .then((tasks) => this.setState({ tasks }));
     }
 
-    render() {
+    sortTasks = (sorter) => {
         const { tasks } = this.state;
+        tasks.sort(sorter);
+        this.setState({ tasks });
+    }
 
+    render() {
+        //create tasks variable that is an array of tasks as objects
+        const { tasks } = this.state;
+        console.log(tasks);
         return (
             <div>
-                <SortBar/>
+                <SortBar sortTasks = {this.sortTasks}/>
                 <table>
                     <thead>
                         <tr>
@@ -39,8 +57,8 @@ class TaskTable extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        tasks.map((x) => {
-                            return <TaskRow task = {x} key = {x.id}/>
+                        tasks.map((taskInArray) => {
+                            return <TaskRow task = {taskInArray} key = {taskInArray.id} fetch = {this.fetchAfterEdit}/>
                         })
                      }
                     </tbody>
