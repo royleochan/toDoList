@@ -46,8 +46,6 @@ class Starred extends React.Component {
                 });
             });
         }
-
-        this.props.fetch();
     }
 
     render() {

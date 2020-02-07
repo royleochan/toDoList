@@ -10,31 +10,43 @@ class TaskTable extends React.Component {
         //array of tasks as objects
         this.state = { 
             tasks: [],
+            sorter: " ",
         };
-
-        this.fetchAfterEdit = this.fetchAfterEdit.bind(this);
     }
 
+    //upon mounting, get sorting state from local storage if one is present
+    //fetch tasks as callback after
     componentDidMount() {
-        this.fetchTasksList();
+        this.setState({
+            sorter: eval('(' + localStorage.getItem("SelectedSort") + ')') || " ",
+        }, this.fetchTasksList)
     }
 
-    fetchAfterEdit() {
-        this.fetchTasksList();
-    }
-
+    //fetches data from api before calling the sort callback function
+    //also sets local storage if a sorting type was specified earlier
     fetchTasksList = () => {
-        console.log("fetch");
-        //fetches data as array of objects
+        localStorage.setItem("SelectedSort", this.state.sorter.toString());
         fetch('/api/v1/tasks')
             .then((response) => response.json())
-            .then((tasks) => this.setState({ tasks }));
+            .then((tasks) => this.setState({ tasks }))
+            .then(() => this.sortTasks());
     }
 
-    sortTasks = (sorter) => {
+    //set the sorting method and fetch the updated tasks as callback function
+    setSort = (sorter) => {
+        const sortFn = sorter;
+        this.setState({
+            sorter: sortFn
+        }, this.fetchTasksList);
+    }
+
+    //sort the tasks
+    sortTasks = () => {
         const { tasks } = this.state;
-        tasks.sort(sorter);
-        this.setState({ tasks });
+        if (this.state.sorter !== " ") {
+            tasks.sort(this.state.sorter);
+            this.setState({ tasks });  
+        }
     }
 
     render() {
@@ -43,7 +55,7 @@ class TaskTable extends React.Component {
         return (
             <div>
                 <h2 style = {{color:"rosybrown"}}> Tasks </h2>
-                <SortBar sortTasks = {this.sortTasks}/>
+                <SortBar setSort = {this.setSort}/>
                 <table> 
                     <thead>
                         <tr>
@@ -58,7 +70,7 @@ class TaskTable extends React.Component {
                     <tbody>
                     {
                         tasks.map((taskInArray) => {
-                            return <TaskRow task = {taskInArray} key = {taskInArray.id} fetch = {this.fetchAfterEdit}/>
+                            return <TaskRow task = {taskInArray} key = {taskInArray.id}/>
                         })
                      }
                     </tbody>

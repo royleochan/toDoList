@@ -51,8 +51,6 @@ class CheckBox extends React.Component {
                 });
             });
         }
-        
-        this.props.fetch();
     }
 
     render() {

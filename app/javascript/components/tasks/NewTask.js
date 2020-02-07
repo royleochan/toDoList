@@ -11,7 +11,7 @@ class NewTask extends React.Component {
           title: '', 
           description: '',
           completed: false,
-          due: ''
+          due: " "
         };
   
       this.handleChange = this.handleChange.bind(this);

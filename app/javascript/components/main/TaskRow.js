@@ -10,8 +10,6 @@ class TaskRow extends React.Component {
         this.state = {
             strikeThrough: null,
         }
-
-        this.fetchCallBack = this.fetchCallBack.bind(this);
     }
 
     componentDidMount() {
@@ -19,10 +17,6 @@ class TaskRow extends React.Component {
         this.setState({
             strikeThrough: task.completed,
         })
-    }
-
-    fetchCallBack() {
-        this.props.fetch();
     }
 
     handleDelete = (taskId) => {
@@ -55,7 +49,7 @@ class TaskRow extends React.Component {
                 <>
                     <tr className = 'tableRowsStrike'>
                         <td>
-                            <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough} fetch = {this.fetchCallBack}/>
+                            <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough}/>
                         </td>
                         <td>{task.title}</td>
                         <td>{task.description}</td>
@@ -74,7 +68,7 @@ class TaskRow extends React.Component {
                             {task.due + ''}
                         </td>
                         <td>
-                            <Starred taskDetails = {task} fetch = {this.fetchCallBack}/>
+                            <Starred taskDetails = {task}/>
                         </td>
                     </tr>
                 </>
@@ -84,7 +78,7 @@ class TaskRow extends React.Component {
                 <>
                     <tr className = "tableRows">
                         <td>
-                            <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough} fetch = {this.fetchCallBack}/>
+                            <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough}/>
                         </td>
                         <td>{task.title}</td>
                         <td>{task.description}</td>
@@ -103,7 +97,7 @@ class TaskRow extends React.Component {
                             {task.due + ''}
                         </td>
                         <td>
-                            <Starred taskDetails = {task} fetch = {this.fetchCallBack}/>
+                            <Starred taskDetails = {task}/>
                         </td>
                     </tr>
                 </>

@@ -41,7 +41,7 @@ class SortBar extends React.Component {
         } else if(taskOne.starred > taskTwo.starred) {
             return -1;
         }
-        return this.compareId(taskOne, taskTwo)
+        return 0;
     }
 
     compareCompleted = (taskOne, taskTwo) => {
@@ -50,7 +50,7 @@ class SortBar extends React.Component {
         } else if(taskOne.completed > taskTwo.completed) {
             return -1
         }
-        return this.compareId(taskOne, taskTwo)
+        return 0;
     }
 
     compareDueDate = (taskOne, taskTwo) => {
@@ -59,7 +59,7 @@ class SortBar extends React.Component {
         } else if(taskOne.due > taskTwo.due) {
             return 1;
         }
-        return this.compareId(taskOne, taskTwo)
+        return 0;
     }
 
     render() {
@@ -73,10 +73,10 @@ class SortBar extends React.Component {
                     this.state.showMenu 
                         ? (
                             <div className = "sortBy">
-                                <button onClick = {() => this.props.sortTasks(this.compareStarred)}>Starred</button>
-                                <button onClick = {() => this.props.sortTasks(this.compareDueDate)}>Due Date</button>
-                                <button onClick = {() => this.props.sortTasks(this.compareCompleted)}>Completed</button>
-                                <button onClick = {() => this.props.sortTasks(this.compareId)}>Creation Date</button>
+                                <button onClick = {() => this.props.setSort(this.compareStarred)}>Starred</button>
+                                <button onClick = {() => this.props.setSort(this.compareDueDate)}>Due Date</button>
+                                <button onClick = {() => this.props.setSort(this.compareCompleted)}>Completed</button>
+                                <button onClick = {() => this.props.setSort(this.compareId)}>Creation Date</button>
                             </div>
                         )
                         : (
