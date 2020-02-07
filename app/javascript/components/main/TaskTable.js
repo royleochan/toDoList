@@ -40,11 +40,11 @@ class TaskTable extends React.Component {
     render() {
         //create tasks variable that is an array of tasks as objects
         const { tasks } = this.state;
-        console.log(tasks);
         return (
             <div>
+                <h2 style = {{color:"rosybrown"}}> Tasks </h2>
                 <SortBar sortTasks = {this.sortTasks}/>
-                <table>
+                <table> 
                     <thead>
                         <tr>
                         <th></th>

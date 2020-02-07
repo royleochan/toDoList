@@ -1,5 +1,17 @@
 .title {
-    color: salmon;
+    color: rosybrown;
+}
+
+.main {
+    color:lavenderblush;
+}
+
+#header {
+    font-family: "Courier New", Courier, monospace;
+    display: inline;
+    color: rosybrown;
+    padding: 25px;
+    text-decoration: line-through;
 }
 
 .navigator {
@@ -14,18 +26,76 @@
     visibility:hidden;
     font-size:30px;
     cursor:pointer;
+    margin-bottom: 30px;
 }
+
 .star:before {
+   display: inline-block; 
    content: "\2606";
    visibility:visible;
 }
 .star:checked:before {
    content: "\2605";
-   color:salmon;
+   color:rosybrown;
 }
 
-.strikeThrough{
-    text-decoration: overline underline line-through;
-    color:#999;
+.tableRowsStrike{
+    text-decoration: line-through;
+    color:black;
 }
 
+tr.tableRowsStrike td {
+    border-bottom: 3px solid lavenderblush;
+}
+
+tr.tableRows td {
+    border-bottom: 3px solid lavenderblush;
+}
+
+table {
+    width: 80%;
+}
+
+th {
+    height: 50px;
+    padding:15px;
+    text-align: left;
+}
+
+td {
+    padding:5px;
+}
+
+.tableRow {
+    border: 1px solid lavenderblush;
+}
+
+.checkBox {
+    font-size: 16px;
+    line-height: 20px;
+    visibility:hidden;
+    font-size:30px;
+    cursor:pointer;
+    margin-bottom: 15px;
+}
+
+.checkBox:before {
+    display: inline-block;
+    width: 25px;
+    content: "\00a0";
+    text-align: center;
+    background: #eee;
+    visibility:visible;
+}
+
+.checkBox:checked:before {
+    content: "\2713";
+    color: rosybrown;
+}
+
+
+
+
+
+
+  

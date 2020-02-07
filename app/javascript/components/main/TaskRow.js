@@ -53,7 +53,7 @@ class TaskRow extends React.Component {
         if (this.state.strikeThrough) {
             return (
                 <>
-                    <tr className = 'strikeThrough'>
+                    <tr className = 'tableRowsStrike'>
                         <td>
                             <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough} fetch = {this.fetchCallBack}/>
                         </td>
@@ -82,7 +82,7 @@ class TaskRow extends React.Component {
         } else {
             return (
                 <>
-                    <tr>
+                    <tr className = "tableRows">
                         <td>
                             <CheckBox taskDetails = {task} handler = {this.handleStrikeThrough} fetch = {this.fetchCallBack}/>
                         </td>

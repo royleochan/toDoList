@@ -16,6 +16,7 @@ export default class App extends React.Component {
           <Link to="/">Home</Link>
           <br></br>
           <Link to="/tasks/new">Create new task</Link>
+          <h2 id = "header">To-DoNE</h2>
         </div>
         <Routes />
       </Router>

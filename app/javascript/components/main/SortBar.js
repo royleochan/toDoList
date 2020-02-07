@@ -88,8 +88,4 @@ class SortBar extends React.Component {
     }
 }
 
-//CS2100
-// CS2040S
-// MA1101R
-
 export default SortBar

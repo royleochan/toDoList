@@ -1,5 +1,7 @@
 import React from 'react'
 
+import '../stylesheets/myStyles.css'
+
 class CheckBox extends React.Component {
     constructor(props) {
         super(props);
@@ -49,6 +51,7 @@ class CheckBox extends React.Component {
                 });
             });
         }
+        
         this.props.fetch();
     }
 
@@ -57,10 +60,10 @@ class CheckBox extends React.Component {
             <div>
                 <input
                     type = "checkbox"
-                    id = "checkbox"
                     checked = {this.state.checked}
                     onChange = {this.handleCheckboxChange}
                     autoComplete = "off"
+                    className = "checkBox"
                 />
             </div>
         )
