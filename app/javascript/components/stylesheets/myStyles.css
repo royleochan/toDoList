@@ -93,7 +93,70 @@ td {
     color: rosybrown;
 }
 
+.home{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background-repeat:  no-repeat;
+}
 
+.button {
+    background-color:bisque;
+}
+
+.button:hover {
+    background-color: lavenderblush;
+}
+
+.create {
+    text-decoration: none;
+}
+
+.create:link {
+    color: black
+}
+
+.create:visited {
+    color: black
+}
+
+.create:hover {
+    color:rosybrown
+}
+
+.subtitle {
+    color:rosybrown;
+}
+
+.input-box {
+    display: block;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 3px;
+    outline: none;
+    font-size: 15px;
+}
+
+.description {
+    display: block;
+    box-sizing: border-box;
+    border-width: 3px;
+    border-style: inset;
+    height: 150px;
+    width: 30%;
+    resize: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.input-box:focus {
+    border: 3px solid bisque;
+}
+
+.description:focus {
+    border: 3px solid bisque;
+}
 
 
 

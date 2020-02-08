@@ -8,6 +8,7 @@ export default class UpdateTask extends React.Component {
       this.state = {
         title: '',
         description: '',
+        due: ''
       }
     }
   
@@ -34,13 +35,14 @@ export default class UpdateTask extends React.Component {
     }
   
     render() {
-      const {title, description, is_published} = this.state;
+      const {title, description, due} = this.state;
       return (
         <div>
-          <h3>New Task</h3>
+          <h3 className = 'subtitle'>Edit Task</h3>
           <div>
             <label>Title: </label>
             <input
+              className = 'input-box'
               type='text'
               name='title'
               value={title}
@@ -49,14 +51,26 @@ export default class UpdateTask extends React.Component {
           </div>
           <div>
             <label>Description: </label>
-            <input
+            <textarea
+              className = 'description'
               type='text'
               name='description'
               value={description}
               onChange={this.handleInputChange}
               />
           </div>
-          <button onClick={this.updateTaskRequest}>Update</button>
+          <div>
+            <label>Due: </label>
+            <input
+              className = 'input-box'
+              placeholder = "YYYY/MM/DD"
+              type='text'
+              name='due'
+              value={due}
+              onChange={this.handleInputChange}
+              />
+          </div>
+          <button onClick={this.updateTaskRequest} className = 'button'>Update</button>
         </div>
       );
     }

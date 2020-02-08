@@ -11,24 +11,18 @@ class NewTask extends React.Component {
           title: '', 
           description: '',
           completed: false,
-          due: " "
+          starred: false,
+          due: ''
         };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleDate = this.handleDate.bind(this);
     }
   
     handleChange(event) {
       const name = event.target.name;
       const value = event.target.value;
       this.setState({[name]: value});
-    }
-
-    handleDate(event) {
-      const name = event.target.name;
-      const value = event.target.value;
-      this.setState({[name]: new Date(value)});
     }
   
     handleSubmit(event) {
@@ -46,11 +40,12 @@ class NewTask extends React.Component {
     render() {
       return (
         <div>
-          <h3>New Task</h3>
+          <h3 className = 'subtitle'>New Task</h3>
           <form onSubmit={this.handleSubmit}>
             <div>
               <label>Task Title:</label>
                 <input 
+                  className = "input-box"
                   type="text" 
                   name="title" 
                   onChange={this.handleChange}
@@ -58,13 +53,13 @@ class NewTask extends React.Component {
             </div>
             <div>
               <label>Description:</label>
-                <input type="text" name="description" onChange={this.handleChange} />
+                <textarea type="text" name="description" onChange={this.handleChange} className = "description"/>
             </div>
             <div>
               <label>Due Date:</label>
-                <input type="text" name="due" placeholder = "YYYY/MM/DD" onChange={this.handleDate} />
+                <input type="text" name="due" placeholder = "YYYY/MM/DD" onChange={this.handleChange} className = "input-box"/>
             </div>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" className = 'button'/>
           </form>
         </div>
       );

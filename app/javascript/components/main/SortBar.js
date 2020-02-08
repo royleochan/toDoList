@@ -65,18 +65,18 @@ class SortBar extends React.Component {
     render() {
         return (
             <div>
-                <button onClick = {this.showMenu}>
-                    Sort
+                <button onClick = {this.showMenu} className = "button">
+                    Sort By
                 </button>
 
                 {
                     this.state.showMenu 
                         ? (
                             <div className = "sortBy">
-                                <button onClick = {() => this.props.setSort(this.compareStarred)}>Starred</button>
-                                <button onClick = {() => this.props.setSort(this.compareDueDate)}>Due Date</button>
-                                <button onClick = {() => this.props.setSort(this.compareCompleted)}>Completed</button>
-                                <button onClick = {() => this.props.setSort(this.compareId)}>Creation Date</button>
+                                <button onClick = {() => this.props.setSort(this.compareStarred)} className = "button">Starred</button>
+                                <button onClick = {() => this.props.setSort(this.compareDueDate)} className = "button">Due Date</button>
+                                <button onClick = {() => this.props.setSort(this.compareCompleted)} className = "button">Completed</button>
+                                <button onClick = {() => this.props.setSort(this.compareId)} className = "button">Creation Date</button>
                             </div>
                         )
                         : (

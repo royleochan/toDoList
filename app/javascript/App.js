@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Routes from './Routes';
 import './components/stylesheets/myStyles.css'
+import home_icon from '../assets/images/home_icon.png'
 
 
 export default class App extends React.Component {
@@ -13,9 +14,11 @@ export default class App extends React.Component {
     return (
       <Router>
         <div className = 'navigator'>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <img src = {home_icon} className = "home"/>
+          </Link>
           <br></br>
-          <Link to="/tasks/new">Create new task</Link>
+          <Link to="/tasks/new" className = "create">Create new task</Link>
           <h2 id = "header">To-DoNE</h2>
         </div>
         <Routes />
