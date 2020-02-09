@@ -4,7 +4,7 @@ import {
   Link
 } from "react-router-dom";
 import Routes from './Routes';
-import './components/stylesheets/myStyles.css'
+import '../assets/stylesheets/myStyles.css'
 import home_icon from '../assets/images/home_icon.png'
 
 

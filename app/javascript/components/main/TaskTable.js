@@ -2,7 +2,7 @@ import React from 'react'
 import SortBar from './SortBar'
 import TaskRow from './TaskRow'
 
-import '../stylesheets/myStyles.css'
+import '../../../assets/stylesheets/myStyles.css'
 
 class TaskTable extends React.Component {
     constructor(props) {
@@ -65,7 +65,7 @@ class TaskTable extends React.Component {
                         <th className = 'title'> Description </th>
                         <th className = 'title'> Actions </th>
                         <th className = 'title'> Due </th>
-                        <th></th>
+                        <th className = 'title'> Starred </th>
                         </tr>
                     </thead>
                     <tbody>

@@ -2,7 +2,7 @@ import React from 'react'
 import CheckBox from './CheckBox'
 import Starred from './Starred'
 
-import '../stylesheets/myStyles.css'
+import '../../../assets/stylesheets/myStyles.css'
 
 class TaskRow extends React.Component {
     constructor(props) {

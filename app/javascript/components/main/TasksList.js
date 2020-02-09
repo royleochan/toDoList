@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import TaskTable from './TaskTable'
 
-import '../stylesheets/myStyles.css'
+import '../../../assets/stylesheets/myStyles.css'
 
 class TasksList extends React.Component {
     constructor(props) {

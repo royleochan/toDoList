@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../stylesheets/myStyles.css'
+import '../../../assets/stylesheets/myStyles.css'
 
 // drop down button
 class SortBar extends React.Component {

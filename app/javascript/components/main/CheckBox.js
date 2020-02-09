@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../stylesheets/myStyles.css'
+import '../../../assets/stylesheets/myStyles.css'
 
 class CheckBox extends React.Component {
     constructor(props) {

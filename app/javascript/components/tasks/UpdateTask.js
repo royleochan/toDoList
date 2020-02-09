@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
+import '../../../assets/stylesheets/myStyles.css'
+
+
 export default class UpdateTask extends React.Component {
     constructor(props) {
       super(props);

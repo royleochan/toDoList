@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 
 import moment from 'react-moment'
 
+import '../../../assets/stylesheets/myStyles.css'
+
 class NewTask extends React.Component {
     constructor(props) {
       super(props);
