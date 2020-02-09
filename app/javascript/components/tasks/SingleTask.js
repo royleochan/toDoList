@@ -17,7 +17,6 @@ class SingleTask extends React.Component {
 
     render() {
         const { task } = this.state;
-        console.log(task.completed)
         if (!task.completed === undefined) {
             var completed = task.completed.toString();
             console.log(completed)
