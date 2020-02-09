@@ -17,9 +17,10 @@ class TaskTable extends React.Component {
     //upon mounting, get sorting state from local storage if one is present
     //fetch tasks as callback after
     componentDidMount() {
-        this.setState({
-            sorter: eval('(' + localStorage.getItem("SelectedSort") + ')') || " ",
-        }, this.fetchTasksList)
+        this.fetchTasksList();
+        // this.setState({
+        //     sorter: eval('(' + localStorage.getItem("SelectedSort") + ')') || " ",
+        // }, this.fetchTasksList)
     }
 
     //fetches data from api before calling the sort callback function
